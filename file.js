@@ -1,12 +1,8 @@
-function computerPlay {
+function computerPlay () {
     let options = ["Rock", "Paper", "Scissors"];
-    let randomAnswer = options[Math.floor(math.random()*options.length)];
+    let randomAnswer = options[Math.floor(Math.random()*options.length)];
+    return randomAnswer;
 }
 
-function playRound(playerSelection, computerSelection) {
-    
-}
+console.log(computerPlay());
 
-const playerSelection = "rock";
-const computerSelection = computerPlay();
-console.log(playRound(playerSelection, computerSelection));
