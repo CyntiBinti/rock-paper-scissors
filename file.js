@@ -39,7 +39,10 @@ function playRound(playerSelection, computerSelection) {
         playerCount +=1;
         computerCount +=0;
     }
+}
 
 //could also potentially do this function as a switch() to be more DRY?
 
 console.log(playRound(playerSelection, computerSelection));
+console.log(playerCount);
+console.log(computerCount);
