@@ -18,15 +18,28 @@ function playRound(playerSelection, computerSelection) {
         console.log("You Win!");
         playerCount +=1;
         computerCount +=0;
+    } else if (playerSelection == "scissors" && computerSelection == "rock") {
+        console.log("You Lose");
+        playerCount +=0;
+        computerCount +=1;
     } else if (playerSelection == "paper" && computerSelection == "scissors") {
         console.log("You Lose");
         playerCount +=0;
         computerCount +=1;
+    } else if (playerSelection == "scissors" && computerSelection == "paper") {
+        console.log("You Lose");
+        playerCount +=1;
+        computerCount +=0;
+    } else if (playerSelection == "rock" && computerSelection == "paper") {
+        console.log("You Lose");
+        playerCount +=0;
+        computerCount +=1;
+    } else if (playerSelection == "paper" && computerSelection == "rock") {
+        console.log("You Lose");
+        playerCount +=1;
+        computerCount +=0;
     }
-}
+
+//could also potentially do this function as a switch() to be more DRY?
 
 console.log(playRound(playerSelection, computerSelection));
-
-function game() {
-    .
-}
