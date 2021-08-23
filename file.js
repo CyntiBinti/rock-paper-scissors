@@ -14,6 +14,14 @@ function playRound(playerSelection, computerSelection) {
         console.log("It's a Tie!");
         playerCount +=0;
         computerCount +=0;
+    } else if (playerSelection == "rock" && computerSelection == "scissors") {
+        console.log("You Win!");
+        playerCount +=1;
+        computerCount +=0;
+    } else if (playerSelection == "paper" && computerSelection == "scissors") {
+        console.log("You Lose");
+        playerCount +=0;
+        computerCount +=1;
     }
 }
 
