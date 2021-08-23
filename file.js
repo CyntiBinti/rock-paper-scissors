@@ -4,10 +4,14 @@ function computerPlay () {
     return randomAnswer;
 }
 
-const playerSelection = prompt("Type either 'Rock', 'Paper', or 'Scissors' to play").toLowerCase();
+var playerSelection;
+do {
+    playerSelection = prompt("Type either 'Rock', 'Paper', or 'Scissors' to play").toLowerCase();
+} while (playerSelection != "rock" || playerSelection != "paper" || playerSelection != "scissors" );
+
 const computerSelection = computerPlay();
-const playerCount = 0;
-const computerCount = 0;
+var playerCount = 0;
+var computerCount = 0;
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
@@ -27,7 +31,7 @@ function playRound(playerSelection, computerSelection) {
         playerCount +=0;
         computerCount +=1;
     } else if (playerSelection == "scissors" && computerSelection == "paper") {
-        console.log("You Lose");
+        console.log("You Win!");
         playerCount +=1;
         computerCount +=0;
     } else if (playerSelection == "rock" && computerSelection == "paper") {
@@ -35,7 +39,7 @@ function playRound(playerSelection, computerSelection) {
         playerCount +=0;
         computerCount +=1;
     } else if (playerSelection == "paper" && computerSelection == "rock") {
-        console.log("You Lose");
+        console.log("You Win!");
         playerCount +=1;
         computerCount +=0;
     }
@@ -43,6 +47,8 @@ function playRound(playerSelection, computerSelection) {
 
 //could also potentially do this function as a switch() to be more DRY?
 
+console.log(playerSelection);
+console.log(computerSelection);
 console.log(playRound(playerSelection, computerSelection));
 console.log(playerCount);
 console.log(computerCount);
