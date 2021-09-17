@@ -7,7 +7,8 @@ function computerPlay () {
 function playerPlay() {
     do {
         var playerOptions = prompt("Type either 'rock', 'paper', or 'scissors' to play").toLowerCase();
-    } while (playerOptions !== "rock" && playerOptions !== "paper" && playerOptions !== "scissors");    
+    } while (playerOptions !== "rock" && playerOptions !== "paper" && playerOptions !== "scissors");  
+    return playerOptions;  
 };
 
 const playerSelection = playerPlay();
