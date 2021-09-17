@@ -19,37 +19,50 @@ var computerCount = 0;
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
         console.log("It's a Tie!");
-        playerCount +=0;
-        computerCount +=0;
     } else if (playerSelection == "rock" && computerSelection == "scissors") {
         console.log("You Win!");
-        playerCount +=1;
+        playerCount ++;
         computerCount +=0;
     } else if (playerSelection == "scissors" && computerSelection == "rock") {
-        console.log("You Lose");
+        console.log("You Lose :(");
         playerCount +=0;
-        computerCount +=1;
+        computerCount ++;
     } else if (playerSelection == "paper" && computerSelection == "scissors") {
-        console.log("You Lose");
+        console.log("You Lose :(");
         playerCount +=0;
-        computerCount +=1;
+        computerCount ++;
     } else if (playerSelection == "scissors" && computerSelection == "paper") {
         console.log("You Win!");
-        playerCount +=1;
+        playerCount ++;
         computerCount +=0;
     } else if (playerSelection == "rock" && computerSelection == "paper") {
-        console.log("You Lose");
+        console.log("You Lose :(");
         playerCount +=0;
-        computerCount +=1;
+        computerCount ++;
     } else if (playerSelection == "paper" && computerSelection == "rock") {
         console.log("You Win!");
-        playerCount +=1;
+        playerCount ++;
         computerCount +=0;
     }
 }
 
-console.log(playerSelection);
-console.log(computerSelection);
-console.log(playRound(playerSelection, computerSelection));
-console.log(playerCount);
-console.log(computerCount);
+var playerScore = 0;
+var compScore = 0;
+function scoreCounter(playerSelection) {
+    if (playerSelection === "You Win!") {
+        playerScore = ++playerScore;
+        return playerScore;
+    } else if (playerSelection === "You Lose :(") {
+        compScore = ++compScore;
+        return compScore;
+    }
+}
+
+console.log("You played:", playerSelection);
+console.log("PC played:", computerSelection);
+console.log("Outcome:", playRound(playerSelection, computerSelection));
+console.log("Player points:", playerCount);
+console.log("PC points:", computerCount);
+console.log("Player score:", playerScore);
+console.log("PC score:", compScore);
+
