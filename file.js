@@ -13,56 +13,46 @@ function playerPlay() {
 
 const playerSelection = playerPlay();
 const computerSelection = computerPlay();
-var playerCount = 0;
-var computerCount = 0;
+let playerScore = 0;
+let cpuScore = 0;
+let roundWinner = '';
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
         console.log("It's a Tie!");
-    } else if (playerSelection == "rock" && computerSelection == "scissors") {
+        roundWinner = 'tie';
+    } else if (
+        (playerSelection == "rock" && computerSelection == "scissors") ||
+        (playerSelection == "scissors" && computerSelection == "paper") ||
+        (playerSelection == "paper" && computerSelection == "rock")
+        ) {
         console.log("You Win!");
-        playerCount ++;
-        computerCount +=0;
-    } else if (playerSelection == "scissors" && computerSelection == "rock") {
+        playerScore = ++playerScore;
+        roundWinner = 'player';
+    } else if (
+        (playerSelection == "scissors" && computerSelection == "rock") ||
+        (playerSelection == "paper" && computerSelection == "scissors") ||
+        (playerSelection == "rock" && computerSelection == "paper")
+        ) {
         console.log("You Lose :(");
-        playerCount +=0;
-        computerCount ++;
-    } else if (playerSelection == "paper" && computerSelection == "scissors") {
-        console.log("You Lose :(");
-        playerCount +=0;
-        computerCount ++;
-    } else if (playerSelection == "scissors" && computerSelection == "paper") {
-        console.log("You Win!");
-        playerCount ++;
-        computerCount +=0;
-    } else if (playerSelection == "rock" && computerSelection == "paper") {
-        console.log("You Lose :(");
-        playerCount +=0;
-        computerCount ++;
-    } else if (playerSelection == "paper" && computerSelection == "rock") {
-        console.log("You Win!");
-        playerCount ++;
-        computerCount +=0;
+        cpuScore = ++cpuScore;
+        roundWinner = 'computer';
     }
 }
 
-var playerScore = 0;
-var compScore = 0;
-function scoreCounter(playerSelection) {
-    if (playerSelection === "You Win!") {
-        playerScore = ++playerScore;
-        return playerScore;
-    } else if (playerSelection === "You Lose :(") {
-        compScore = ++compScore;
-        return compScore;
+function gameOver() {
+    if (playerScore < 3 || cpuScore < 3) {
+        do {
+            return playRound;
+        } while (playerScore !== 3 || cpuScore !== 3);
+    } else {
+        console.log("Game Over!");
     }
 }
 
 console.log("You played:", playerSelection);
 console.log("PC played:", computerSelection);
 console.log("Outcome:", playRound(playerSelection, computerSelection));
-console.log("Player points:", playerCount);
-console.log("PC points:", computerCount);
-console.log("Player score:", playerScore);
-console.log("PC score:", compScore);
+console.log("Player points:", playerScore);
+console.log("PC points:", cpuScore);
 
