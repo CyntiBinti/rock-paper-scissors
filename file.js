@@ -1,14 +1,16 @@
 function computerPlay () {
-    let options = ["rock", "paper", "scissors"];
-    let randomAnswer = options[Math.floor(Math.random()*options.length)];
+    let compOptions = ["rock", "paper", "scissors"];
+    let randomAnswer = compOptions[Math.floor(Math.random()*compOptions.length)];
     return randomAnswer;
-}
+};
 
-var playerSelection;
-do {
-    playerSelection = prompt("Type either 'Rock', 'Paper', or 'Scissors' to play").toLowerCase();
-} while (playerSelection != "rock" || playerSelection != "paper" || playerSelection != "scissors" );
+function playerPlay() {
+    do {
+        var playerOptions = prompt("Type either 'rock', 'paper', or 'scissors' to play").toLowerCase();
+    } while (playerOptions !== "rock" && playerOptions !== "paper" && playerOptions !== "scissors");    
+};
 
+const playerSelection = playerPlay();
 const computerSelection = computerPlay();
 var playerCount = 0;
 var computerCount = 0;
@@ -44,8 +46,6 @@ function playRound(playerSelection, computerSelection) {
         computerCount +=0;
     }
 }
-
-//could also potentially do this function as a switch() to be more DRY?
 
 console.log(playerSelection);
 console.log(computerSelection);
