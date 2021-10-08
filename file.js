@@ -1,27 +1,31 @@
-function playRound() {
+function playGame() {
     let playerScore = 0;
     let cpuScore = 0;
 
-    let computerSelection
-    let playerSelection
-    let game
+    let computerSelection;
+    let playerSelection;
+    let roundWinner;
 
     for (let i = 0; i < 3; i++) {
 
-        computerSelection = function computerPlay () {
+        function computerPlay () {
             let compOptions = ["rock", "paper", "scissors"];
             let randomAnswer = compOptions[Math.floor(Math.random()*compOptions.length)];
             return randomAnswer;
         };
 
-        playerSelection = function playerPlay() {
+        computerSelection = computerPlay();
+
+        function playerPlay() {
             do {
                 var playerOptions = prompt("Type either 'rock', 'paper', or 'scissors' to play").toLowerCase();
             } while (playerOptions !== "rock" && playerOptions !== "paper" && playerOptions !== "scissors");  
             return playerOptions;  
         };
 
-        game = function playRound() {
+        playerSelection = playerPlay();
+
+        function roundWinner() {
             if (playerSelection === computerSelection) {
                 console.log("It's a Tie!");
             } else if (
@@ -39,13 +43,16 @@ function playRound() {
                 console.log("You Lose :(");
                 cpuScore = ++cpuScore;
             }
-        }
+        } roundWinner();
     } console.log("GAME OVER");
-}
 
 console.log("You played:", playerSelection);
 console.log("PC played:", computerSelection);
-console.log("Outcome:", game);
+console.log("Outcome:", roundWinner());
 console.log("Player points:", playerScore);
 console.log("PC points:", cpuScore);
+
+}
+
+
 
