@@ -46,13 +46,10 @@ function playGame() {
         } roundWinner();
     } console.log("GAME OVER");
 
-console.log("You played:", playerSelection);
-console.log("PC played:", computerSelection);
-console.log("Outcome:", roundWinner());
-console.log("Player points:", playerScore);
-console.log("PC points:", cpuScore);
+console.log("Player final score:", playerScore);
+console.log("PC final score:", cpuScore);
 
-}
+} playGame();
 
 
 
