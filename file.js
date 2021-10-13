@@ -4,7 +4,6 @@ function playGame() {
 
     let computerSelection;
     let playerSelection;
-    let roundWinner;
 
     for (let i = 0; i < 3; i++) {
 
